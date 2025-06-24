@@ -1,0 +1,131 @@
+:root {
+  --Green-200: hsl(148, 38%, 91%);
+  --Green-600: hsl(169, 82%, 27%);
+  --Red: hsl(0, 66%, 54%);
+  --White: hsl(0, 0%, 100%);
+  --Grey-500: hsl(186, 15%, 59%);
+  --Grey-900: hsl(187, 24%, 22%);
+}
+* {
+  box-shadow: none !important;
+}
+body {
+  background-color: var(--Green-200);
+  min-height: 100vb;
+}
+/* Start Global Rules */
+.red {
+  color: var(--Red);
+}
+.grey-900 {
+  color: var(--Grey-900);
+}
+.green-600 {
+  color: var(--Green-600);
+}
+.bg-green-600 {
+  background-color: var(--Green-600);
+}
+.pointer {
+  cursor: pointer;
+}
+/* End Global Rules */
+/* Start Pop Up */
+.pop-up {
+  width: fit-content;
+  top: -200px;
+  left: 50%;
+  transform: translatex(-50%);
+  background-color: var(--Grey-900);
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+  &.show {
+    top: 20px;
+    opacity: 1;
+  }
+}
+/* End Pop Up */
+/* Start Form */
+.content {
+  max-width: 617px;
+  .form-control {
+    border-color: var(--Grey-500);
+    &:focus {
+      border-color: var(--Green-600);
+    }
+    &.correct {
+      border-color: var(--Green-600);
+    }
+    &.is-invalid {
+      border-color: var(--Red);
+    }
+  }
+  span.error {
+    font-size: 13px;
+    color: var(--Red);
+  }
+  .query-type {
+    .input-box {
+      border: 1px solid var(--Grey-500);
+    }
+  }
+  .dot {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    outline: 1px solid var(--Grey-500);
+    border-radius: 50%;
+    margin-bottom: -2px;
+    transition: 0.3s;
+  }
+  #one {
+    &:checked {
+      + .one {
+        border: 3px solid var(--White);
+        background-color: var(--Green-600);
+      }
+    }
+  }
+  #two {
+    &:checked {
+      + .two {
+        border: 3px solid var(--White);
+        background-color: var(--Green-600);
+      }
+    }
+  }
+  textarea {
+    height: 90px;
+    resize: none;
+  }
+  .checkbox {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 2px;
+    border: 1px solid var(--Grey-500);
+    margin-bottom: -3px;
+    overflow: hidden;
+    &::before {
+      content: url('../assets/images/icon-checkbox-check.svg');
+      transition: 0.3s;
+      opacity: 0;
+    }
+  }
+  input[type="checkbox"] {
+    &:checked {
+      +.checkbox {
+        &::before {
+          opacity: 1;
+        }
+      }
+    }
+  }
+  button {
+    transition: 0.3s;
+    &:hover {
+      background-color: var(--Grey-900);
+    }
+  }
+}
+/* End Form */
